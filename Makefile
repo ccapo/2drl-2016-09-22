@@ -32,11 +32,14 @@ HEADERS = $(wildcard $(INCDIR)/2drl/*.hpp)
 
 OBJECTS = $(SOURCES:.cpp=.o)
 
-all: clean 2drl bundle
+all: clean 2drl run
 
 2drl: $(HEADERS) $(OBJECTS)
 	@$(CPP) $(CFLAGS) $(OBJECTS) -o $@ $(LFLAGS)
 	@rm -f $(OBJECTS)
+
+run:
+	./2drl
 
 clean:
 	@rm -f $(OBJECTS)
